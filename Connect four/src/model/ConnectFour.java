@@ -1,8 +1,10 @@
+package model;
 
 public class ConnectFour extends Gra{
 	int need = 4;
 	public ConnectFour(){
 		plansza = new int[6][7];
+		fillZero();
 	}
 	public void ktoWygral(){
     	if(szuk_pion()==true || szuk_poziom(need) == true || szuk_skos(need)== true ) System.out.println(" Wygrales");
