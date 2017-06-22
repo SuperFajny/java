@@ -1,18 +1,26 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Modelmain{
-	int wyb = 4;
-	public Modelmain(int choose)
-	{
-		this.wyb=choose;
-		if(wyb == 5){
-			ConnectFive game = new ConnectFive(); 
-		}
-		else if(wyb == 4){
-			ConnectFour game = new ConnectFour(); 
-		}
+	
+	public InterModel game = null;
+	
+	public Modelmain(InterModel game){
+		this.game = game;
+	
 	}
+	public void modelInsert (int j){
+		game.insert(j);
+	}
+	public int getGracz(){
+		return game.getGracz();
+	}
+	
+	public boolean ktoWygral(){
+		return game.ktoWygral();
+	}
+	public int[] getWyb(){
+		return game.getWyb();
+	}
+	
 }

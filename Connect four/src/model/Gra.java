@@ -6,7 +6,7 @@ abstract class Gra {
 	int wyb[] = new int[2];
 	int gracz = 1;
 	
-	public abstract void ktoWygral();
+	public abstract boolean ktoWygral();
 	
 	public void fillZero(){
 		for(int i = 0; i < plansza.length; i++)
@@ -31,6 +31,7 @@ abstract class Gra {
 				plansza[i][kolumna]=gracz;
 				wyb[0]=i;
 				wyb[1]=kolumna;
+				this.display();
 				break;
 			}
 		}
@@ -88,8 +89,15 @@ abstract class Gra {
     	else return false;
      }
     
-    public void nastepny_gracz(){
+    public void nastepnyGracz(){
     	if (gracz == 1) gracz = 2;
     	else if(gracz == 2)gracz = 1;
+    }
+    
+    public int getGracz(){
+    	return gracz;
+    }
+    public int[] getWyb(){
+    	return wyb;
     }
 }

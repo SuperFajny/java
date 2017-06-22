@@ -4,13 +4,16 @@ package widok;
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
-	public class PanelGry5 extends JPanel {
+	public class PanelGry5 extends JPanel implements StrategyWidok {
 		private int w = 450;
 		private int h = 300;
 		private int x0=150;
 		private int y0=100;
 		CircleList kola = new CircleList(x0,y0);
+		Graphics g;
+		ArrayList<JButton> buttons;
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
 			this.setBackground(Color.GRAY);
@@ -21,11 +24,31 @@ import java.awt.*;
 			}
 			g.drawLine(x0, h+y0, w+x0, h + y0 );
 			
-			kola.adCircle(0,1,1);
-			kola.adCircle(5,3,2);
-			kola.drawCircle(g);
-				
+			this.setLayout(null);
+			
+			createButtons(9);
 		}
+		
+		void createButtons(int need){
+			buttons = new ArrayList<JButton>();
+			for(int i =0; i < need; i++){
+				String t = Integer.toString(i+1);
+				JButton b = new JButton(t);
+				buttons.add(b);
+			}
+			for(JButton button : buttons ){
+				int i = buttons.indexOf(button);
+				button.setBounds(x0+10+i*50, y0-50, 30, 40);
+				//button.addActionListener(this); // czy to this jest dobrze?
+				this.add(button);
+			}
+		}
+		public void dodajkulke(int i , int j, int gracz){
+			kola.adCircle(i,j,gracz);
+			kola.drawCircle(g);
+		}
+		
 	}
+	
 
 	
