@@ -1,5 +1,7 @@
 package start;
-
+// tutaj powstaje model MVC ( Kontroler, widok , model) w zalezonci od wybranej 
+//opcji w panelu  Menu 0 - ConnectFour 1- ConnectFive
+// opcja 2  ->  otwiera Menu ( i tak jest na pocz¹tku ustawione
 
 import Menu.Menu;
 import kontroler.Kontroler;
