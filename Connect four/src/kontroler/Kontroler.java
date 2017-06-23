@@ -12,6 +12,8 @@ public class Kontroler {
 		this.view = view;
 		this.model = model;
 		getColumnNumber(3);
+		getColumnNumber(4);
+		getColumnNumber(4);
 	}
 	
 	public void getColumnNumber(int j){

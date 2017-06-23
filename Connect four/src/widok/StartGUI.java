@@ -2,20 +2,30 @@ package widok;
 
 
 import javax.swing.*;
+
+import model.Modelmain;
+import model.Observer;
+
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
 //implements ActionListener
 
-public class StartGUI  {
+public class StartGUI extends Observer {
 	public static final int HEIGHT = 800;
 	public static final int WIDTH = 600;
 	JFrame grafika;
 	ArrayList<JButton> buttons;
 	int zasada;
+	PanelGry4 panel4;
+	PanelGry5 panel5;
+	private Object subject;
+	private Modelmain model;
 
-	public StartGUI(int zasady){
+	public StartGUI(int zasady, Modelmain model){
 		super();
+		this.model = model;
+		this.model.attach(this);
 		this.zasada=zasady;
 		this.go();
 		
@@ -38,12 +48,12 @@ public class StartGUI  {
 		tk1.setSize(WIDTH, 100);
 		
 		if( zasada == 0){
-			PanelGry4 panel4 = new PanelGry4();
+			panel4 = new PanelGry4();
 			grafika.getContentPane().add(BorderLayout.CENTER, panel4);
 			//
 		}
 		else if(zasada == 1){
-			PanelGry5 panel5 = new PanelGry5();
+			panel5 = new PanelGry5();
 			grafika.getContentPane().add(BorderLayout.CENTER, panel5);
 
 		}
@@ -55,6 +65,16 @@ public class StartGUI  {
 		System.out.println(j);
 	}
 	
+	public void update(int[] wyb, int gracz){
+		int i = wyb[0];
+		int j = wyb[1];
+		if(zasada == 0){
+			panel4.dodajkulke(i,j,gracz);
+		}
+		else if(zasada == 1){
+			panel5.dodajkulke(i,j,gracz);
+		}
+	}
 	
 	
 }

@@ -53,8 +53,7 @@ public class CircleList {
     	}
     	g2d.setPaint(gradient);
     	g2d.fillOval(c.x, c.y, c.diameter, c.diameter);
-    	
-    	
+
     }
       
   }

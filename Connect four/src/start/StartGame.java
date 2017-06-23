@@ -21,12 +21,12 @@ public class StartGame {
 	public StartGame(int zasady){
 		switch(zasady){
 		
-		case 0:	view = new StartGUI(zasady);
-				model = new Modelmain(new ConnectFour());
+		case 0:	model = new Modelmain(new ConnectFour());
+				view = new StartGUI(zasady, model);
 				controler = new Kontroler(model, view,zasady);;
 				break;
-		case 1:	view = new StartGUI(zasady);
-				model = new Modelmain(new ConnectFive());
+		case 1:	model = new Modelmain(new ConnectFive());
+				view = new StartGUI(zasady, model);
 				controler = new Kontroler(model, view,zasady);;
 				break;
 			

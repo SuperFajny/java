@@ -11,8 +11,10 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 	private int h = 300;
 	private int x0=200;
 	private int y0=100;
+	private int wiersz;
+	private int kolumna;
+	private int tgracz;
 	CircleList kola = new CircleList(x0,y0);
-	Graphics g;
 	ArrayList<JButton> buttons;
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -23,10 +25,11 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 			g.drawLine(x0 + i*50, y0, x0 + i*50, h + y0 );
 		}
 		g.drawLine(x0, h+y0, w+x0, h + y0 );
-	
 		
 		this.setLayout(null);
 		createButtons(7);
+		
+		kola.drawCircle(g);
 	}
 	
 	void createButtons(int need){
@@ -55,8 +58,11 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 	}
 	
 	public void dodajkulke(int i , int j, int gracz){
-		kola.adCircle(i,j,gracz);
-		kola.drawCircle(g);
+		kolumna=j;
+		wiersz=i;
+		tgracz=gracz;
+		kola.adCircle(wiersz,kolumna,tgracz);
+		
 	}
 	
 	//

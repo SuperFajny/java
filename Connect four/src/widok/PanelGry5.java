@@ -11,8 +11,10 @@ import java.util.ArrayList;
 		private int h = 300;
 		private int x0=150;
 		private int y0=100;
+		private int wiersz;
+		private int kolumna;
+		private int tgracz;
 		CircleList kola = new CircleList(x0,y0);
-		Graphics g;
 		ArrayList<JButton> buttons;
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 			this.setLayout(null);
 			
 			createButtons(9);
+			kola.drawCircle(g);
 		}
 		
 		void createButtons(int need){
@@ -44,8 +47,11 @@ import java.util.ArrayList;
 			}
 		}
 		public void dodajkulke(int i , int j, int gracz){
-			kola.adCircle(i,j,gracz);
-			kola.drawCircle(g);
+			kolumna=j;
+			wiersz=i;
+			tgracz=gracz;
+			kola.adCircle(wiersz,kolumna,tgracz);
+			
 		}
 		
 	}
