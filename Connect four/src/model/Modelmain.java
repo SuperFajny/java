@@ -17,7 +17,10 @@ public class Modelmain{
 		}
 		else notifyAllObservers(1);
 		// sprawdza czy ktos wygral
-		if(ktoWygral()==true) notifyAllObservers(2);
+		if(ktoWygral()==true) {
+			notifyAllObservers(2);
+			game.FillZero();
+		}
 		else nastepnyGracz();
 	}
 	public int getGracz(){

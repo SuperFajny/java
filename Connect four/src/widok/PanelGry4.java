@@ -63,5 +63,9 @@ public class PanelGry4 extends JPanel implements  StrategyWidok {
 		
 	}
 	
+	public void clearPanel(){
+		kola.clearList();
+		this.repaint();
+	}
 	//
 }

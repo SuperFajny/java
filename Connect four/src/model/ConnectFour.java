@@ -4,7 +4,7 @@ public class ConnectFour extends Gra implements InterModel{
 	int need = 4;
 	public ConnectFour(){
 		plansza = new int[6][7];
-		fillZero();
+		FillZero();
 	}
 	public boolean ktoWygral(){
     	if(szuk_pion()==true || szuk_poziom(need) == true || szuk_skos(need)== true ) return true;

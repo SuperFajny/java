@@ -60,7 +60,10 @@ import java.util.ArrayList;
 			act=set;
 			
 		}
-		
+		public void clearPanel(){
+			kola.clearList();
+			this.repaint();
+		}
 	}
 	
 

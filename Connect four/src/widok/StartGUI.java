@@ -83,6 +83,12 @@ public class StartGUI extends Observer {
 	public void Wygrana(int gracz){
 		String message = "Gratulacje wygral gracz " + gracz;
 		JOptionPane.showMessageDialog(null, message);
+		if(zasada == 0){
+			panel4.clearPanel();
+		}
+		else if(zasada == 1){
+			panel5.clearPanel();
+		}
 	}
 	
 	public void addController(ActionListener controller){

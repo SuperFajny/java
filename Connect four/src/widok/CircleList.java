@@ -34,6 +34,9 @@ public class CircleList {
 	 CircleList.y0=yp0;
     circles = new ArrayList<Circle>();
   }
+  public void clearList(){
+	  circles.clear();
+  }
   
   public void adCircle(int i,int j,int gracz){
 	  Circle kolo = new Circle(i,j,gracz);

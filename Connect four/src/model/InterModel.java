@@ -6,4 +6,5 @@ public interface InterModel {
 	public void nastepnyGracz();
 	public int getGracz();
 	public int[] getWyb();
+	public void FillZero();
 }
