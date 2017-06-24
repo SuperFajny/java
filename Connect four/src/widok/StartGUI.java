@@ -3,6 +3,7 @@ package widok;
 
 import javax.swing.*;
 
+import kontroler.Kontroler;
 import model.Modelmain;
 import model.Observer;
 
@@ -15,7 +16,7 @@ public class StartGUI extends Observer {
 	public static final int HEIGHT = 800;
 	public static final int WIDTH = 600;
 	JFrame grafika;
-	ArrayList<JButton> buttons;
+	//ArrayList<JButton> buttons;
 	int zasada;
 	PanelGry4 panel4;
 	PanelGry5 panel5;
@@ -75,6 +76,26 @@ public class StartGUI extends Observer {
 			panel5.dodajkulke(i,j,gracz);
 		}
 	}
+	public void kolumnaFull(){
+		JOptionPane.showMessageDialog(null, "Wybierz inna kolumne");
+		
+	}
+	public void Wygrana(int gracz){
+		String message = "Gratulacje wygral gracz " + gracz;
+		JOptionPane.showMessageDialog(null, message);
+	}
+	
+	public void addController(ActionListener controller){
+		if(zasada == 0){
+			panel4.setActionListener(controller);
+			panel4.createButtons(7);
+		}
+		if(zasada == 1){
+			panel5.setActionListener(controller);
+			panel5.createButtons(9);
+		}
+	
+	}	
 	
 	
 }

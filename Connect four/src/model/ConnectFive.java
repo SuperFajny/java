@@ -9,10 +9,8 @@ public class ConnectFive extends Gra  implements InterModel{
 	}
 	public boolean ktoWygral(){
     	if(szuk_skos(need)== true  || szuk_poziom(need) == true) return true;
-    	else {
-    		nastepnyGracz();
-    		return false;
-    	}
+    	else return false;
+ 
     }
 
 }

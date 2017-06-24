@@ -21,20 +21,19 @@ abstract class Gra {
 		}
 		
 	}
-	public void insert(int kolumna){
+	public boolean insert(int kolumna){
 		for(int i = plansza.length-1; i >=0; i--){
 			if ( plansza[0][kolumna] != 0){
-				System.out.println("Wybierz inna kolumne ");
-				break;
+				return false;
 			}	
-			if (plansza[i][kolumna]==0) {
+			else if (plansza[i][kolumna]==0) {
 				plansza[i][kolumna]=gracz;
 				wyb[0]=i;
 				wyb[1]=kolumna;
-				this.display();
-				break;
+				return true;
 			}
 		}
+		return false;
 	}
 	protected boolean szuk_poziom(int need) {
 	    int i = wyb[0];

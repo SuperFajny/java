@@ -2,8 +2,9 @@ package kontroler;
 
 import model.Modelmain;
 import widok.StartGUI;
+import java.awt.event.ActionListener;
 
-public class Kontroler {
+public class Kontroler implements ActionListener {
 	
 	public Modelmain model=null;
 	public StartGUI view=null;
@@ -11,15 +12,17 @@ public class Kontroler {
 	public Kontroler(Modelmain model, StartGUI view, int zasady){
 		this.view = view;
 		this.model = model;
-		getColumnNumber(3);
-		getColumnNumber(4);
-		getColumnNumber(4);
 	}
 	
-	public void getColumnNumber(int j){
+	public void setColumnNumber(int j){
 		model.modelInsert(j);
 	}
 	public int getGracz(){
 		return model.getGracz();
+	}
+	public void actionPerformed(java.awt.event.ActionEvent e){
+		String ac = e.getActionCommand();
+		int j = Integer.parseInt(ac);
+		model.modelInsert(j);
 	}
 }

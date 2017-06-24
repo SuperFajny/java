@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import kontroler.Kontroler;
 
-public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
+public class PanelGry4 extends JPanel implements  StrategyWidok {
 	private int w = 350;
 	private int h = 300;
 	private int x0=200;
@@ -16,6 +16,7 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 	private int tgracz;
 	CircleList kola = new CircleList(x0,y0);
 	ArrayList<JButton> buttons;
+	ActionListener act;
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(Color.GRAY);
@@ -27,7 +28,7 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 		g.drawLine(x0, h+y0, w+x0, h + y0 );
 		
 		this.setLayout(null);
-		createButtons(7);
+		//createButtons(7);
 		
 		kola.drawCircle(g);
 	}
@@ -42,26 +43,23 @@ public class PanelGry4 extends JPanel implements ActionListener, StrategyWidok {
 		for(JButton button : buttons ){
 			int i = buttons.indexOf(button);
 			button.setBounds(x0+10+i*50, y0-50, 30, 40);
-			button.addActionListener(this); // czy to this jest dobrze?
+			button.addActionListener(act);
 			this.add(button);
 		}
 	}
 	
-	public void actionPerformed(ActionEvent e){
-		
-		String ac = e.getActionCommand();
-		int j = Integer.parseInt(ac);
-		System.out.println("Przycisk " + j);
-		//column(j);
-		
-		//controler.getColumnNumber(j);
-	}
 	
 	public void dodajkulke(int i , int j, int gracz){
+		
 		kolumna=j;
 		wiersz=i;
 		tgracz=gracz;
 		kola.adCircle(wiersz,kolumna,tgracz);
+		this.repaint();
+	}
+	
+	public void setActionListener(ActionListener set){
+		act=set;
 		
 	}
 	

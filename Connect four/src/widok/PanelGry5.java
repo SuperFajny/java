@@ -4,6 +4,7 @@ package widok;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 	public class PanelGry5 extends JPanel implements StrategyWidok {
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 		private int tgracz;
 		CircleList kola = new CircleList(x0,y0);
 		ArrayList<JButton> buttons;
+		ActionListener act;
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
 			this.setBackground(Color.GRAY);
@@ -27,22 +29,21 @@ import java.util.ArrayList;
 			g.drawLine(x0, h+y0, w+x0, h + y0 );
 			
 			this.setLayout(null);
-			
-			createButtons(9);
 			kola.drawCircle(g);
 		}
 		
 		void createButtons(int need){
 			buttons = new ArrayList<JButton>();
 			for(int i =0; i < need; i++){
-				String t = Integer.toString(i+1);
+				String t = Integer.toString(i);
 				JButton b = new JButton(t);
 				buttons.add(b);
 			}
 			for(JButton button : buttons ){
 				int i = buttons.indexOf(button);
 				button.setBounds(x0+10+i*50, y0-50, 30, 40);
-				//button.addActionListener(this); // czy to this jest dobrze?
+				button.addActionListener(act);
+				System.out.println(act);
 				this.add(button);
 			}
 		}
@@ -51,6 +52,12 @@ import java.util.ArrayList;
 			wiersz=i;
 			tgracz=gracz;
 			kola.adCircle(wiersz,kolumna,tgracz);
+			this.repaint();
+			
+		}
+		
+		public void setActionListener(ActionListener set){
+			act=set;
 			
 		}
 		

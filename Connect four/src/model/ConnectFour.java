@@ -8,10 +8,7 @@ public class ConnectFour extends Gra implements InterModel{
 	}
 	public boolean ktoWygral(){
     	if(szuk_pion()==true || szuk_poziom(need) == true || szuk_skos(need)== true ) return true;
-    	else {
-    		nastepnyGracz();
-    		return false;
-    	}
+    	else return false;
 	}
 	protected boolean szuk_pion(){
 		int x = wyb[0];

@@ -23,11 +23,13 @@ public class StartGame {
 		
 		case 0:	model = new Modelmain(new ConnectFour());
 				view = new StartGUI(zasady, model);
-				controler = new Kontroler(model, view,zasady);;
+				controler = new Kontroler(model, view,zasady);
+				view.addController(controler);
 				break;
 		case 1:	model = new Modelmain(new ConnectFive());
 				view = new StartGUI(zasady, model);
-				controler = new Kontroler(model, view,zasady);;
+				controler = new Kontroler(model, view,zasady);
+				view.addController(controler);
 				break;
 			
 		case 2:	menu = new Menu();
