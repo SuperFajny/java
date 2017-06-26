@@ -8,12 +8,6 @@ import java.awt.event.ActionListener;
 
 import start.StartGame;
 
-// Widok menu , który wyswietla sie na starcie 
-// Okienka z dwoma przyciskami ConnnectFour i ConnectFive
-// klikniecie na ConnectFour -> callGame(0)
-//klikniecie na ConnectFive -> callGame(1)
-// okno zamyka siê po wyborze
-
 public class Menu  extends JFrame {
 	
 	public JButton b1;
@@ -22,7 +16,6 @@ public class Menu  extends JFrame {
 	
 	
 	public Menu(){
-		//Menu menu = new Menu();
 		go();
 	}
 	public void go(){

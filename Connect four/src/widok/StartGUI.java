@@ -17,7 +17,7 @@ public class StartGUI extends Observer {
 	public static final int WIDTH = 600;
 	JFrame grafika;
 	//ArrayList<JButton> buttons;
-	int zasada;
+	int zasada=0;
 	PanelGry4 panel4;
 	PanelGry5 panel5;
 	private Object subject;
@@ -101,7 +101,13 @@ public class StartGUI extends Observer {
 			panel5.createButtons(9);
 		}
 	
-	}	
+	}
+	
+	public int getZasada(){
+		return zasada;
+	}
+	
+	
 	
 	
 }
